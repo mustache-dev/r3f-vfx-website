@@ -12,7 +12,7 @@ export const Lights = () => {
       shadow-mapSize={[4096, 4096]}
     />
 
-    <Environment preset="sunset" background backgroundBlurriness={1} />
+    {/*<Environment preset="sunset" background backgroundBlurriness={1} />*/}
     </>
   );
 }
