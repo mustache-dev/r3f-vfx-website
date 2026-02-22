@@ -47,7 +47,7 @@ function FlameEffect() {
         appearance="gradient"
         lighting="standard"
         emitterShape={1}
-        colorNode={({ progress }) => colorNode(progress)}
+        colorNode={({ progress }: any) => colorNode(progress)}
       />
 
       {/* Layer 2: Glowing core — sphere geometry, turbulence, stretch */}

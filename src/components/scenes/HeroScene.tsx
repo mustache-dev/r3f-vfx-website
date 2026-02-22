@@ -3,7 +3,6 @@ import { useFrame } from "@react-three/fiber";
 import {
   MeshBasicNodeMaterial,
   NearestFilter,
-  PlaneGeometry,
   TextureLoader,
   Vector3,
   type Mesh,
@@ -162,7 +161,7 @@ function Sparks() {
             [_dir.y - SPREAD, _dir.y + SPREAD],
             [_dir.z - SPREAD, _dir.z + SPREAD],
           ],
-        });
+        } as any);
       }
     }
 
@@ -177,7 +176,7 @@ function Sparks() {
           [-1, 1],
         ],
         speed: [0.1, 2],
-      });
+      } as any);
       emit2([0, 0, 0], 100);
     }
   });
@@ -244,7 +243,7 @@ export const HeroScene = () => {
           die: false,
           sizeBasedGravity: 0,
         }}
-        colorNode={({ progress }) =>
+        colorNode={({ progress }: any) =>
           mix(sparksColorStart, color1, progress.smoothstep(0, 0.3))
         }
       />
@@ -272,7 +271,7 @@ export const HeroScene = () => {
         emitterShape={2}
         emitterRadius={[0, 0.27]}
         // alphaMap={text}
-        colorNode={({ progress }) =>
+        colorNode={({ progress }: any) =>
           vec4(
             color1.mul(progress.oneMinus().smoothstep(0.6, 0.8)),
             texture(text).a.mul(progress.oneMinus()),

@@ -88,7 +88,7 @@ function TrailEmitter() {
             [_dir.y - SPREAD, _dir.y + SPREAD],
             [_dir.z - SPREAD, _dir.z + SPREAD],
           ],
-        });
+        } as any);
       }
     }
 
@@ -135,7 +135,7 @@ function TrailEffect() {
         appearance="gradient"
         lighting="standard"
         emitterShape={1}
-        colorNode={({ progress }) =>
+        colorNode={({ progress }: any) =>
           mix(trailColor, trailColorEnd, progress.smoothstep(0, 0.5))
         }
         trail={{
@@ -143,7 +143,6 @@ function TrailEffect() {
           width: 0.02,
           taper: true,
           opacity: 1,
-          mode: "history",
           length: 4.09,
           showParticles: false,
         }}

@@ -1,5 +1,3 @@
-import { Environment } from "@react-three/drei";
-
 export const Lights = () => {
   return (
     <>

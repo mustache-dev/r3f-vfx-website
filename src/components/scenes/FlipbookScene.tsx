@@ -1,7 +1,7 @@
 import { useLoader } from "@react-three/fiber/webgpu";
 import { VFXParticles } from "r3f-vfx";
 import { NearestFilter, SRGBColorSpace, TextureLoader } from "three";
-import { color, mix, texture, vec3, vec4 } from "three/tsl";
+import { color, mix, texture, vec4 } from "three/tsl";
 import { FeatureCanvas } from "../FeatureCanvas";
 
 /**
@@ -45,7 +45,7 @@ function FlipbookEffect() {
         appearance="gradient"
         lighting="standard"
         blending={2}
-        colorNode={({ progress }) =>
+        colorNode={({ progress }: any) =>
           vec4(
             mix(
               fireColor,

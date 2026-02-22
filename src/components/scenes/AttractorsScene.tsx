@@ -19,7 +19,7 @@ export const AttractorsScene = () => {
             position: [0, 0, 0],
             strength: 2,
             radius: 4,
-            type: 0,
+            type: "point",
           },
         ]}
       />

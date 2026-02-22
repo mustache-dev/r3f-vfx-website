@@ -9,9 +9,8 @@ Title: Checkered Tile Floor
 */
 
 import * as THREE from "three";
-import React from "react";
 import { useGLTF } from "@react-three/drei";
-import { GLTF } from "three-stdlib";
+import type { GLTF } from "three-stdlib";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -20,13 +19,12 @@ type GLTFResult = GLTF & {
   materials: {
     floor_texture: THREE.MeshStandardMaterial;
   };
-  animations: GLTFAction[];
 };
 
-export function Model(props: JSX.IntrinsicElements["group"]) {
+export function Model(props: React.JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
     "/checkered_tile_floor-transformed.glb",
-  ) as GLTFResult;
+  ) as unknown as GLTFResult;
   return (
     <group
       {...props}
