@@ -408,7 +408,7 @@ export const HomePage = () => {
             Drop-in particle effects
           </p>
           <p className="intro-line intro-line--large intro-line--dim">
-            for the React ecosystem.
+            for the Three.js ecosystem.
           </p>
           <p className="intro-line intro-line--body">
             r3f-vfx gives you a declarative, component-based API for creating
