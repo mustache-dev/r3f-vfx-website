@@ -8,7 +8,7 @@ export const Lights = () => {
       
       position={[1000, 100, 100]}
       intensity={10}
-      color={"#ffffffff"}
+      color={"#ffffff"}
       shadow-mapSize={[4096, 4096]}
     />
 

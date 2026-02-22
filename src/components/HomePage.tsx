@@ -5,6 +5,10 @@ import { EmitterShapesScene } from "./scenes/EmitterShapesScene";
 import { PhysicsScene } from "./scenes/PhysicsScene";
 import { AttractorsScene } from "./scenes/AttractorsScene";
 import { CustomShadersScene } from "./scenes/CustomShadersScene";
+import { TrailsScene } from "./scenes/TrailsScene";
+import { FlipbookScene } from "./scenes/FlipbookScene";
+import { FlameScene } from "./scenes/FlameScene";
+import { FresnelScene } from "./scenes/FresnelScene";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,6 +60,46 @@ const FEATURES_DATA = [
       "Inject custom Three Shading Language nodes into the particle pipeline. Override color, opacity, geometry, and backdrop with your own shader logic. Full creative control.",
     props: ["colorNodes", "opacityNodes", "geometryNodes", "backdropNodes"],
     scene: CustomShadersScene,
+  },
+  {
+    id: "trails",
+    num: "05",
+    title: "Trail Rendering",
+    subtitle: "History-based particle trails",
+    description:
+      "Meshline-based trails that follow particle history. Control segment count, width, taper, and length. Combine with velocity curves for dynamic spark effects that arc and fade naturally.",
+    props: ["trail", "velocityCurve", "showParticles", "segments"],
+    scene: TrailsScene,
+  },
+  {
+    id: "flipbook",
+    num: "06",
+    title: "Flipbook & Textures",
+    subtitle: "Sprite sheet animation",
+    description:
+      "Use texture alpha maps and colorNode injection to create fire, smoke, and explosion sprites. Combine multiple particle layers — texture sprites with ember particles — for rich, layered effects.",
+    props: ["colorNode", "texture", "alphaMap", "blending"],
+    scene: FlipbookScene,
+  },
+  {
+    id: "flame",
+    num: "07",
+    title: "Layered Effects",
+    subtitle: "Multi-emitter composition",
+    description:
+      "Combine multiple VFXParticles with different geometries, blending modes, and turbulence settings. Layer texture-based sprites over stretched sphere particles with additive blending for realistic fire.",
+    props: ["stretchBySpeed", "turbulence", "blending", "geometry"],
+    scene: FlameScene,
+  },
+  {
+    id: "fresnel",
+    num: "08",
+    title: "Fresnel & Geometry",
+    subtitle: "Custom mesh particles",
+    description:
+      "Replace default billboards with custom Three.js geometries. Apply fresnel-based colorNode shaders for rim lighting effects. Stretch particles by velocity for dramatic motion trails.",
+    props: ["colorNode", "geometry", "orientToDirection", "stretchBySpeed"],
+    scene: FresnelScene,
   },
 ];
 
@@ -258,8 +302,11 @@ export const HomePage = () => {
           <a href="#/docs" className="nav-link">
             Docs
           </a>
-          <a href="#examples" className="nav-link">
+          <a href="#/examples" className="nav-link">
             Examples
+          </a>
+          <a href="#/store" className="nav-link">
+            Store
           </a>
         </div>
         <a

@@ -1,10 +1,9 @@
-import { Canvas } from "@react-three/fiber";
 import { VFXParticles } from "r3f-vfx";
-import { Environment } from "@react-three/drei";
+import { FeatureCanvas } from "../FeatureCanvas";
 
-const Scene = () => {
+export const EmitterShapesScene = () => {
   return (
-    <>
+    <FeatureCanvas>
       <VFXParticles
         emitterShape={2}
         emitterRadius={1.5}
@@ -15,21 +14,9 @@ const Scene = () => {
         colorEnd={["#ff6b3500"]}
         fadeOpacity={[1, 0]}
         fadeSize={[1, 0.2]}
-        // blending={"additive"}
         emitCount={8}
         gravity={[0, 0.1, 0]}
       />
-      <Environment preset="sunset" />
-    </>
-  );
-};
-
-export const EmitterShapesScene = () => {
-  return (
-    <div className="scene-canvas">
-      <Canvas renderer={{ forceWebGL: false }}>
-        <Scene />
-      </Canvas>
-    </div>
+    </FeatureCanvas>
   );
 };

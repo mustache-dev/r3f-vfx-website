@@ -35,8 +35,8 @@ const EMIT_DURATION_MAX = 0.8;
 const RESET_DURATION = 2;
 const SUBSTEPS = 6;
 const SPREAD = 0.3;
-const SHOCKWAVE_SPEED = 3;
-const SHOCKWAVE_DURATION = 1.2;
+const SHOCKWAVE_SPEED = 10;
+const SHOCKWAVE_DURATION = 0.4;
 
 const _lerpPos = new Vector3();
 const _dir = new Vector3();

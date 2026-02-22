@@ -1,10 +1,9 @@
-import { Canvas } from "@react-three/fiber";
 import { VFXParticles } from "r3f-vfx";
-import { Environment } from "@react-three/drei";
+import { FeatureCanvas } from "../FeatureCanvas";
 
-const Scene = () => {
+export const PhysicsScene = () => {
   return (
-    <>
+    <FeatureCanvas>
       <VFXParticles
         emitterShape={3}
         emitterRadius={0.3}
@@ -18,21 +17,8 @@ const Scene = () => {
         turbulence={{ intensity: 0.5, frequency: 1.2, speed: 0.8 }}
         fadeOpacity={[1, 0]}
         fadeSize={[0.5, 1]}
-        // blending={"additive"}
         emitCount={5}
-        // collision={{ plane: -2, bounce: 0.4, friction: 0.2 }}
       />
-      <Environment preset="night" />
-    </>
-  );
-};
-
-export const PhysicsScene = () => {
-  return (
-    <div className="scene-canvas">
-      <Canvas renderer={{ forceWebGL: false }}>
-        <Scene />
-      </Canvas>
-    </div>
+    </FeatureCanvas>
   );
 };

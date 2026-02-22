@@ -5,19 +5,26 @@ import { OrbitControls } from "@react-three/drei";
 import { PostProcessing } from "./components/postprocessing";
 import { HomePage } from "./components/HomePage";
 import { DocsPage } from "./components/DocsPage";
-
+import { ExamplesPage } from "./components/ExamplesPage";
+import { StorePage } from "./components/StorePage";
 import { HeroScene } from "./components/scenes/HeroScene";
 
-type Page = "home" | "docs";
+type Page = "home" | "docs" | "examples" | "store";
+
+function getPage(): Page {
+  const hash = window.location.hash;
+  if (hash === "#/docs") return "docs";
+  if (hash === "#/examples") return "examples";
+  if (hash === "#/store") return "store";
+  return "home";
+}
 
 function App() {
-  const [page, setPage] = useState<Page>(() => {
-    return window.location.hash === "#/docs" ? "docs" : "home";
-  });
+  const [page, setPage] = useState<Page>(getPage);
 
   useEffect(() => {
     const onHash = () => {
-      setPage(window.location.hash === "#/docs" ? "docs" : "home");
+      setPage(getPage());
       window.scrollTo(0, 0);
     };
     window.addEventListener("hashchange", onHash);
@@ -48,7 +55,6 @@ function App() {
         >
           <Canvas renderer={{ forceWebGL: false }} hmr={true}>
             <Lights />
-            {/*<Model />*/}
             {ready && <HeroScene />}
             <OrbitControls enableZoom={false} enablePan={false} />
             <PostProcessing />
@@ -57,6 +63,8 @@ function App() {
       )}
       {page === "home" && <HomePage />}
       {page === "docs" && <DocsPage />}
+      {page === "examples" && <ExamplesPage />}
+      {page === "store" && <StorePage />}
     </>
   );
 }
